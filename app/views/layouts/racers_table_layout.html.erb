@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Участники гонок</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag "racers_table_style", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "racers_table_media_style", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'racers_table_script', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.ico' %>
+  </head>
+
+  <body>
+    <header></header>
+    <%= yield %>
+    <footer></footer>
+  </body>  
+</html>
+

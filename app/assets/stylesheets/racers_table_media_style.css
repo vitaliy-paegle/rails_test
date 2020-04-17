@@ -1,0 +1,52 @@
+@media (max-width: 500px) {
+
+    body {
+        font-size: 10px;
+    }
+    .form-button-type-one {       
+        font-size: 12px;
+    }
+
+    .form-field-type-one {
+        font-size: 12px;
+        min-width: 61.2px;
+    }
+
+    .racers-list__cell_field-name {
+        font-size: 12px;
+        min-width: 61.6px;
+    }
+
+    .racers-list__cell_field-number {
+        font-size: 12px;
+        min-width: 61.2px;
+    }
+
+    .new-race__form {
+        grid-template-columns: 105px repeat(3, min-content);
+        grid-gap: 5px;
+        font-size: 0.95em;
+        
+    }
+
+    .form-select-field-type-one {
+        font-size: 12px;
+        min-width: 78px;
+    }
+
+    .new-race__header {
+        padding-left: 110px;        
+        grid-gap: 5px;
+        grid-template-columns: repeat(2, 78px);
+    }
+
+    .new-race__name-race {
+        width: 91px;
+    }
+
+    .races-list__table-row {        
+        grid-template-columns: 105px 78px 78px 71px;
+        grid-gap: 5px;
+    }
+
+}

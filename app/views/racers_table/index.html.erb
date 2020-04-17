@@ -1,0 +1,110 @@
+<section class="new-racer">
+    <h2 class="headline-2">Добавить участника гонок:</h2>    
+    <%= form_with(scope: :new_racer, url: racers_table_create_path, method: "post", class:"new-racer__form") do |form| %>
+        <%= form.text_field(:name, class:"form-field-type-one", maxlength:8, placeholder:"Имя") %>
+        <%= form.text_field(:number, class:"form-field-type-one type-number", maxlength:3, placeholder:"Номер") %>
+        <%= form.submit(value:"Сохранить", class:"form-button-type-one") %>
+    <% end %>     
+</section>
+
+<section class="racers-list">
+    <h2 class="headline-2">Участники гонок:</h2>   
+    <div class="racers-list__table">
+        <% @racerslist.each do |racer| %>
+            <% if racer["edit"] == true %>
+                <div class="racers-list__table-row">
+                    <div class="racers-list__cell">
+                        <%= form_with(scope: :racer_update, url: racers_table_update_path, method: "post", class:"new-racer__form") do |form| %>
+                            <%= form.text_field(:name, class:"form-field-type-one", maxlength:8, value: racer["name"]) %>
+                            <%= form.text_field(:number, class:"form-field-type-one type-number", maxlength:3, value: racer["number"]) %>
+                            <%= form.text_field(:id, hidden:true, value: racer["id"]) %>
+                            <%= form.submit(value:"Сохранить", class:"form-button-type-one") %>                    
+                        <% end %>
+                    </div>
+
+                    <div class="racers-list__cell">
+                        <%= button_to "Удалить", {action: "delete", info: racer["id"]},  method:"post", class:"form-button-type-one button-delete" %>
+                    </div>     
+                </div>               
+            <% else %>
+                <div class="racers-list__table-row">
+                    <div class="racers-list__cell_field-name">
+                        <span><%= racer["name"] %></span>   
+                    </div>
+                    <div class="racers-list__cell_field-number">
+                        <span><%= racer["number"] %></span>   
+                    </div>
+                    <div class="racers-list__cell">
+                        <%= button_to "Редактировать", {action: "edit", info: racer["id"]}, method: "post", class:"form-button-type-one" %>
+                    </div>
+                    <div class="racers-list__cell">
+                        <%= button_to "Удалить", {action: "delete", info: racer["id"]},  method: "post", class:"form-button-type-one" %>
+                    </div>
+                </div>
+            <% end %>    
+        <% end %>
+    </div>
+</section>
+
+<section class="racer-errors">
+    <% @error_message.each do |e| %>
+        <p class="errors__point">
+            <%= e %>
+        </p>
+    <% end %>
+</section>
+
+<section class="new-race">
+    <h2 class="headline-2">Создать гонку:</h2>
+    <div class="new-race__header">
+        <p class="new-race__header-item">Участник №1:</p>
+        <p class="new-race__header-item">Участник №2:</p>
+    </div>
+    <%= form_with(scope: :new_race, url: racers_table_create_race_path, method: "post", class:"new-race__form") do |form| %>
+        <%= form.text_field(:name, class:"form-field-type-one new-race__name-race", maxlength:10, placeholder:"Название гонки") %>
+        <div class="select-wrapper">
+            <%= form.select(:member_one, {}, {}, {class:"form-select-field-type-one"}) do %>
+                <% @racerslist.each do |r| %>
+                    <%= content_tag(:option, r["name"], value: r["id"]) %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="select-wrapper">
+            <%= form.select(:member_two, {}, {}, {class:"form-select-field-type-one"}) do %>
+                <% @racerslist.each do |r| %>
+                    <%= content_tag(:option, r["name"], value: r["id"]) %>
+                <% end %>
+            <% end %>
+        </div>
+        <%= form.submit(value:"Сохранить", class:"form-button-type-one") %>
+    <% end %> 
+</section>
+
+<section class="race-errors">
+    <% @error_message_race.each do |e| %>
+        <p class="errors__point">
+            <%= e %>
+        </p>
+    <% end %>
+</section>
+
+<section class="race-list">
+    <h2 class="headline-2">Перечень сохраненных гонок:</h2>
+    <% @raceslist.each do |race|%>
+        <div class="races-list__table-row">
+            <div class="races-list__cell_field-name">
+                <span><%= race.name %></span>   
+            </div>
+            <div class="races-list__cell_field-member-one">
+                <span><%= race.member_one %></span>   
+            </div>
+            <div class="races-list__cell_field-member-two">
+                <span><%= race.member_two %></span>   
+            </div>
+            <div class="races-list__cell">
+                <%= button_to "Удалить", {action: "delete_race", info: race.id},  method: "post", class:"form-button-type-one" %>
+            </div>
+        </div>
+    <% end %>
+</section>
+

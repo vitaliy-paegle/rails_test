@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;    
+}
+
+body{
+    font-size: 16px;
+}
+
+.form-field-type-one {
+    outline: none;
+    border: 1px solid black;
+    padding: 6px;
+    min-width: 79.2px;
+    border-radius: 3px;
+    font-size: 19.2px;
+    
+}
+
+.form-button-type-one {
+    color: whitesmoke;
+    background: #2db63e;
+    outline: none;
+    border: none;
+    padding: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 3px;
+    font-size: 19.2px;
+}
+
+/* ----- select ----- */
+.form-select-field-type-one {
+    outline: none;
+    border: none;    
+    padding: 6px;
+    min-width: 136.4px;
+    border-radius: 3px;
+    font-size: 19.2px;
+    background-color: white;
+    color: black;  
+    -webkit-appearance: none;
+    border: 1px solid black;
+}
+
+.select-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    position: relative;
+}
+
+.select-wrapper::after{
+    content: "\25BC";
+    color: black;
+    text-align: center;
+    vertical-align: middle;   
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+    cursor:pointer;
+    pointer-events:none;       
+}
+/* ---------------- */
+
+/* --- new-racer --- */
+.new-racer__form { 
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, min-content);
+    grid-gap: 10px;
+}
+/* ---------------- */
+
+
+/* --- racers-list --- */
+.racers-list__table-row {
+    display: grid;
+    width: min-content;
+    grid-auto-flow: column;    
+    grid-template-columns: repeat(4,min-content);
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.racers-list__table-row:hover{
+    background-color: whitesmoke;
+    cursor: default;
+}
+
+.racers-list__table{
+    display: grid;
+    grid-gap: 10px;
+}
+
+.racer-errors{
+    display: grid;
+    margin-top: 20px;
+    background-color: #221e1f;
+    max-width: 472.4px;
+    border-radius: 3px;
+    grid-gap: 10px;
+    color: whitesmoke;
+}
+
+.errors__point{
+    margin: 0;
+    padding: 6px;
+}
+
+.racers-list__cell_field-name{
+    font-size: 1.2em;
+    padding: 7px;
+    min-width: 103.2px;
+}
+
+.racers-list__cell_field-number{    
+    font-size: 1.2em;    
+    padding: 7px;
+    min-width: 79.2px;
+}
+/* ---------------- */
+
+
+/* --- new-race --- */
+.new-race__form {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 155px repeat(3, min-content);
+    grid-gap: 10px;
+}
+
+.new-race__name-race{
+    width: 141px;
+}
+
+.new-race__header {
+    padding-left: 165px;
+    font-size: 1.2em;
+    font-weight: 600;
+    height: min-content;    
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 136.4px);
+}
+
+.new-race__header-item{
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+/* ---------------- */
+
+
+/* --- reces-list --- */
+.race-list{
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 10px;
+    font-size: 1.2em;
+}
+
+.races-list__table-row{
+    display: grid;
+    width: min-content;
+    grid-auto-flow: column;
+    grid-template-columns: 155px 136.4px 136.4px 106.3px;
+    align-items: center;
+    grid-gap: 10px;
+     
+}
+
+.race-errors {
+    display: grid;
+    margin-top: 20px;
+    background-color: #221e1f;
+    max-width: 564px;
+    border-radius: 3px;
+    grid-gap: 10px;
+    color: whitesmoke;
+}
+
+/* ------------------ */
